@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.ExpertMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.Expert">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="introduction" property="introduction" jdbcType="VARCHAR" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="value" property="value" jdbcType="VARCHAR" />
+		<result column="tagOne" property="tagOne" jdbcType="VARCHAR" />
+		<result column="tagTwo" property="tagTwo" jdbcType="VARCHAR" />
+		<result column="tagThree" property="tagThree" jdbcType="VARCHAR" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,name,introduction,img,value,tagOne,tagTwo,tagThree,user_id,status
+	</sql>
+	<select id="getExpertList" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from expert
+	</select>
+	<!-- 查询当前用户是否有已存在的心理咨询师注册请求 -->
+	<select id="boolExpertRequest" parameterType="Integer" resultType="king.flyz.pojo.Expert">
+		SELECT name,introduction
+		FROM expert
+		where user_id=#{user_id} and status=0;
+	</select>
+	<!-- 插入一个新的expert表 -->
+	<insert id="addExpert">
+		insert into 
+		expert(name,introduction,img,value,tagOne,tagTwo,tagThree,user_id)
+		values(#{name},#{introduction},#{img},#{value},#{tagOne},#{tagTwo},#{tagThree},#{user_id})
+	</insert>
+	<select id="getExpertById" parameterType="Integer" resultType="king.flyz.pojo.Expert">
+		select
+		<include refid="Base_Column_List" />
+		from expert
+		where id=#{id}
+	</select>
+	<update id="updateExpertStatusById" parameterType="king.flyz.pojo.Expert">
+		update expert
+		<set>
+			<if test="status != null">
+				status = #{status},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	<select id="getExpertLikely" resultMap="BaseResultMap"
+		parameterType="String">
+		select 
+		<include refid="Base_Column_List" />
+		from expert
+		where name like concat('%',#{title},'%')
+	</select>
+	<!-- 查询该心理咨询师的价格 -->
+	<select id="getExpertPrice" parameterType="Integer" resultType="String">
+		SELECT value
+		FROM expert
+		where user_id=#{user_id} and status=1;
+	</select>
+</mapper>

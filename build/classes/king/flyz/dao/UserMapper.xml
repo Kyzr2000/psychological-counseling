@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,account,password,name,sex,email,phone,status,createAt
+	</sql>
+	<select id="getUserList" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+	</select>
+	<select id="getExpertList" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where status = 1
+	</select>
+	<select id="getAdminList" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where status = 2
+	</select>
+	<select id="getUserManList" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where sex="男"
+	</select>
+	<select id="getUserWomenList" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where sex="女"
+	</select>
+	<select id="getPwdByUsername" resultType="String"
+		parameterType="String">
+		select password from user where account=#{account}
+	</select>
+	<select id="getUserByUsername" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from user where account=#{account}
+	</select>
+	<insert id="addUser">
+		insert into
+		user(account,password,name,sex,email,phone,status,createAt)
+		values(#{account},#{password},#{name},#{sex},#{email},#{phone},#{status},#{createAt})
+	</insert>
+	<select id="getUserById" resultType="king.flyz.pojo.User"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where id=#{id}
+	</select>
+	<update id="updateUserStatusById" parameterType="king.flyz.pojo.User">
+		update user
+		<set>
+			<if test="status != null">
+				status = #{status},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	<update id="updateUserMessage" parameterType="king.flyz.pojo.User">
+		update user
+		<set>
+			<if test="name != null">
+				name = #{name},
+			</if>
+			<if test="email != null">
+				email = #{email},
+			</if>
+			<if test="sex != null">
+				sex = #{sex},
+			</if>
+			<if test="phone != null">
+				phone = #{phone},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	<update id="updateUserPassword" parameterType="king.flyz.pojo.User">
+		update user
+		<set>
+			<if test="password != null">
+				password = #{password},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	<select id="getUserLikely" resultMap="BaseResultMap"
+		parameterType="String">
+		select 
+		<include refid="Base_Column_List" />
+		from user
+		where name like concat('%',#{title},'%')
+	</select>
+	<delete id="deleteUserById" parameterType="Integer">
+		delete
+		from user
+		where id = #{id}
+	</delete>
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.CommentMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.Comment">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="answer_id" property="answer_id" jdbcType="INTEGER" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="article" property="article" jdbcType="VARCHAR" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 一对一 结果集 -->
+	<resultMap id="UserWithComment" type="king.flyz.pojo.Comment">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="answer_id" property="answer_id" jdbcType="INTEGER" />
+		<result column="article" property="article" jdbcType="VARCHAR" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+		<association property="user" javaType="king.flyz.pojo.User">
+			<id column="user_id" property="id" />
+			<result column="name" property="name" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,answer_id,user_id,article,createAt
+	</sql>
+	<insert id="addComment">
+		insert into
+		comment(answer_id,user_id,article,createAt)
+		values(#{answer_id},#{user_id},#{article},#{createAt})
+	</insert>
+	<select id="getCommentListByAnswerID" parameterType="Integer" resultMap="UserWithComment">
+		select 
+		comment.id,answer_id,article,comment.createAt,user.name
+		from comment,user
+		where answer_id=#{answer_id}
+		and user_id=user.id
+	</select>
+	<select id="getCommentList" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from comment
+	</select>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.ChecksMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.Checks">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="title_id" property="title_id" jdbcType="INTEGER" />
+		<result column="question_id" property="question_id" jdbcType="INTEGER" />
+		<result column="question" property="question" jdbcType="VARCHAR" />
+		<result column="optionA" property="optionA" jdbcType="VARCHAR" />
+		<result column="optionB" property="optionB" jdbcType="VARCHAR" />
+		<result column="optionC" property="optionC" jdbcType="VARCHAR" />
+		<result column="valueA" property="valueA" jdbcType="INTEGER" />
+		<result column="valueB" property="valueB" jdbcType="INTEGER" />
+		<result column="valueC" property="valueC" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,title_id,question_id,question,optionA,optionB,optionC,valueA,valueB,valueC
+	</sql>
+	<select id="getCheckByTitleID" resultMap="BaseResultMap"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from checks
+		where title_id=#{title_id}
+	</select>
+</mapper>

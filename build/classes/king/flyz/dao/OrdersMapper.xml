@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.OrdersMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.Orders">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="house_id" property="house_id" jdbcType="INTEGER" />
+		<result column="customer_id" property="customer_id" jdbcType="INTEGER" />
+		<result column="expert_id" property="expert_id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="VARCHAR" />
+		<result column="myInfo" property="myInfo" jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 一对一 结果集 -->
+	<resultMap id="UserWithOrders" type="king.flyz.pojo.Orders">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="house_id" property="house_id" jdbcType="INTEGER" />
+		<result column="customer_id" property="customer_id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="VARCHAR" />
+		<result column="myInfo" property="myInfo" jdbcType="VARCHAR" />
+		<association property="user" javaType="king.flyz.pojo.User">
+			<id column="expert_id" property="id" />
+			<result column="name" property="name" />
+		</association>
+	</resultMap>
+	<resultMap id="UserWithOrders2" type="king.flyz.pojo.Orders">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="house_id" property="house_id" jdbcType="INTEGER" />
+		<result column="expert_id" property="expert_id" jdbcType="INTEGER" />
+		<result column="customer_id" property="customer_id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="VARCHAR" />
+		<result column="myInfo" property="myInfo" jdbcType="VARCHAR" />
+		<association property="user" javaType="king.flyz.pojo.User">
+			<id column="customer_id" property="id" />
+			<result column="name" property="name" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,house_id,customer_id,expert_id,status,createAt,price,myInfo
+	</sql>
+	<select id="getOrderByUserID" resultMap="BaseResultMap"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from orders
+		where customer_id=#{customer_id}
+		and (status=0 or status=1);
+	</select>
+	<select id="getOrderListByUserID" resultMap="BaseResultMap"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from orders
+		where customer_id=#{customer_id};
+	</select>
+	<select id="getOrderListWithUser" resultMap="UserWithOrders"
+		parameterType="Integer">
+		select
+		orders.id,house_id,user.name,orders.createAt,orders.status,price,customer_id,myInfo
+		from orders,user
+		where expert_id=user.id and
+		customer_id=#{customer_id};
+	</select>
+	<select id="getOrderListWithUser2" resultMap="UserWithOrders2"
+		parameterType="Integer">
+		select
+		orders.id,house_id,user.name,orders.createAt,orders.status,price,customer_id,myInfo
+		from orders,user
+		where customer_id=user.id and
+		expert_id=#{expert_id};
+	</select>
+	<insert id="addOrders">
+		insert into 
+		orders(house_id,customer_id,expert_id,status,createAt,price,myInfo)
+		values(#{house_id},#{customer_id},#{expert_id},#{status},#{createAt},#{price},#{myInfo})
+	</insert>
+	<select id="getOrderByID" resultType="king.flyz.pojo.Orders"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from orders
+		where id=#{id};
+	</select>
+	<select id="getAllOrder" resultType="king.flyz.pojo.Orders"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from orders
+	</select>
+	<update id="updateOrderById" parameterType="king.flyz.pojo.Orders">
+		update orders
+		<set>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			<if test="myInfo != null">
+				myInfo = #{myInfo},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	<select id="getHIDByCID" resultType="Integer"
+		parameterType="Integer">
+		select
+		house_id
+		from orders
+		where customer_id=#{customer_id}
+		and status=1;
+	</select>
+	<select id="getHIDByEID" resultType="Integer"
+		parameterType="Integer">
+		select
+		house_id
+		from orders
+		where expert_id=#{expert_id}
+		and status=1;
+	</select>
+</mapper>

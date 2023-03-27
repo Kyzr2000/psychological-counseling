@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.PassageMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.Passage">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="article" property="article" jdbcType="VARCHAR" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,title,img,article,createAt,status
+	</sql>
+	<select id="selectPassageList" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from passage;
+	</select>
+	<select id="selectPassageById" resultMap="BaseResultMap"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from passage
+		where id=#{id};
+	</select>
+	<update id="updatePassageById" parameterType="king.flyz.pojo.Passage">
+		update passage
+		<set>
+			<if test="title != null">
+				title = #{title},
+			</if>
+			<if test="img != null">
+				img = #{img},
+			</if>
+			<if test="article != null">
+				article = #{article},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	<delete id="deletePassageById" parameterType="Integer">
+		delete
+		from passage
+		where id = #{id}
+	</delete>
+	<select id="getPassageLikely" resultMap="BaseResultMap"
+		parameterType="String">
+		select 
+		<include refid="Base_Column_List" />
+		from passage
+		where title like concat('%',#{title},'%')
+	</select>
+	<insert id="addPassage">
+		insert into 
+		passage(title,img,article,createAt,status)
+		values(#{title},#{img},#{article},#{createAt},#{status})
+	</insert>
+</mapper>
