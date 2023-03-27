@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.CourseMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.Course">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="VARCHAR" />
+		<result column="courseURL" property="courseURL" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,img,title,createAt,price,courseURL
+	</sql>
+	<select id="getCourseList" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from course
+	</select>
+	<select id="getCourseByID" resultMap="BaseResultMap"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from course
+		where id=#{id}
+	</select>
+	<update id="updateCourseById" parameterType="king.flyz.pojo.Course">
+		update course
+		<set>
+			<if test="title != null">
+				title = #{title},
+			</if>
+			<if test="img != null">
+				img = #{img},
+			</if>
+			<if test="price != null">
+				price = #{price},
+			</if>
+			<if test="courseURL != null">
+				courseURL = #{courseURL},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	<delete id="deleteCourseById" parameterType="Integer">
+		delete
+		from course
+		where id = #{id}
+	</delete>
+	<select id="getCourseLikely" resultMap="BaseResultMap"
+		parameterType="String">
+		select 
+		<include refid="Base_Column_List" />
+		from course
+		where title like concat('%',#{title},'%')
+	</select>
+	<insert id="addCourse">
+		insert into 
+		course(title,price,img,createAt,courseURL)
+		values(#{title},#{price},#{img},#{createAt},#{courseURL})
+	</insert>
+</mapper>

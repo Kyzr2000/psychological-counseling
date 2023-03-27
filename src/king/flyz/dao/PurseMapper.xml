@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.PurseMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.Purse">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="money" property="money" jdbcType="VARCHAR" />
+		<result column="inMoney" property="inMoney" jdbcType="VARCHAR" />
+		<result column="outMoney" property="outMoney" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+	<!-- 一对一 结果集 -->
+	<resultMap id="UserWithPurse" type="king.flyz.pojo.Purse">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="money" property="money" jdbcType="VARCHAR" />
+		<result column="inMoney" property="inMoney" jdbcType="VARCHAR" />
+		<result column="outMoney" property="outMoney" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<association property="user" javaType="king.flyz.pojo.User">
+			<id column="user_id" property="id" />
+			<result column="name" property="name" />
+			<result column="email" property="email" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,user_id,money,inMoney,outMoney,status
+	</sql>
+	<select id="getPurseById" resultMap="BaseResultMap"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from purse
+		where id=#{id};
+	</select>
+	<select id="getMoneyByUserId" resultType="String"
+		parameterType="Integer">
+		select money
+		from purse
+		where user_id=#{user_id};
+	</select>
+	<insert id="addPurse">
+		insert into 
+		purse(user_id,money)
+		values(#{user_id},#{money})
+	</insert>
+	<select id="getPurseByUserId" resultMap="BaseResultMap"
+		parameterType="Integer">
+		select
+		<include refid="Base_Column_List" />
+		from purse
+		where user_id=#{user_id};
+	</select>
+	<update id="updatePurseByUserId" parameterType="king.flyz.pojo.Purse">
+		update purse
+		<set>
+			<if test="money != null">
+				money = #{money},
+			</if>
+			<if test="inMoney != null">
+				inMoney = #{inMoney},
+			</if>
+			<if test="outMoney != null">
+				outMoney = #{outMoney},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+	<!-- 后台操作钱包时 需要提用户信息 -->
+	<select id="getPurseWithUserList" resultMap="UserWithPurse">
+		SELECT purse.id,money,inMoney,outMoney,purse.status,name,email
+		from purse,user
+		where user.id=purse.user_id
+	</select>	
+	<select id="getPurseLikely" resultMap="UserWithPurse"
+		parameterType="String">
+		select 
+		purse.id,money,inMoney,outMoney,purse.status,name,email
+		from purse,user
+		where user.id=purse.user_id and
+		user.name like concat('%',#{title},'%')
+	</select>
+	<delete id="deletePurseByUserId" parameterType="Integer">
+		delete
+		from purse
+		where user_id = #{user_id}
+	</delete>
+	<!-- 钱包扣钱加钱 -->
+	<update id="updateIOPurse" parameterType="king.flyz.pojo.Purse">
+		update purse
+		<set>
+			<if test="money != null">
+				money = #{money},
+			</if>
+		</set>
+		where user_id = #{user_id}
+	</update>
+</mapper>

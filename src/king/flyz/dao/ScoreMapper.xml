@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.ScoreMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.Score">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="title_id" property="title_id" jdbcType="INTEGER" />
+		<result column="grades" property="grades" jdbcType="INTEGER" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,user_id,title_id,grades,createAt
+	</sql>
+	<!-- 1.查询：通过用户的id、题目的id来查询用户是否测评过本题 -->
+	<select id="getScoreByUidAndTid" parameterType="Integer" resultType="king.flyz.pojo.Score">
+		select 
+		<include refid="Base_Column_List" />
+		from score
+		where user_id=#{user_id} and title_id=#{title_id}
+	</select>
+	<!-- 2.更新：如果用户做过这道题，只需要更新分数 -->
+	<update id="updateScoreByUidAndTid" parameterType="king.flyz.pojo.Purse">
+		update score
+		<set>
+			<if test="grades != null">
+				grades = #{grades}
+			</if>
+		</set>
+		where user_id = #{user_id} and title_id=#{title_id}
+	</update>
+	<!-- 3.插入：如果用户没做过这道题，要插入一条新的数据 -->
+	<insert id="addScore">
+		insert into 
+		score(user_id,title_id,grades,createAt)
+		values(#{user_id},#{title_id},#{grades},#{createAt})
+	</insert>
+	<!-- 统计分析用来看每道题有几个人答过 -->
+	<select id="getScoreByTitleId" parameterType="Integer" resultType="king.flyz.pojo.Score">
+		select 
+		<include refid="Base_Column_List" />
+		from score
+		where title_id = #{title_id}
+	</select>
+	<!-- 通过用户id查询所有的记录、历史记录 -->
+	<select id="getScoreById" parameterType="Integer" resultType="king.flyz.pojo.Score">
+		select 
+		<include refid="Base_Column_List" />
+		from score
+		where user_id = #{user_id}
+	</select>
+</mapper>
