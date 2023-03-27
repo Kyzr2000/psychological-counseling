@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.kyzr_bottom{
+	position:relative;
+	height:50px;
+	top:50px;
+}
+.kyzr_bottomWord{
+	position:relative;
+	text-align:center;
+	color:white;
+}
+a{
+	color:white;
+	text-decoration:none;
+}
+.kyzr_blog:hover{
+	color:purple;
+	text-decoration:none;
+}
+

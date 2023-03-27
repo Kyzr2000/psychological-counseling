@@ -1,0 +1,133 @@
+@charset "UTF-8";
+ a:hover{
+ 	text-decoration:none;
+ }
+ .kyzr_psyPageContent{
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+.kyzr_psyContent{
+	height: 400px;
+    width: 83%;
+    margin:0 auto;
+    top: 40px;
+    position: relative;
+    background-color: white;
+    border-radius: 25px;
+}
+.kyzr_psyContentTitle{
+	position: relative;
+	height:100px;
+	text-align:center;
+}
+@font-face{
+	font-family:"myFont";
+	src:url("ShouShuW.ttf");
+}
+.kyzr_word{
+	font-family:"myFont";
+	font-size: 60px;
+    top: 15px;
+    position: relative;
+}
+.kyzr_psyContainer{
+	position:relative;
+	height:300px;
+}
+.kyzr_psyKind{
+    position: relative;
+    height: 200px;
+    width: 250px;
+    top: 30px;
+    float: left;
+    margin-left: 120px;
+    border-radius:15px;
+}
+.kyzr_psyIMG{
+	position: relative;
+	width:250px;
+	height:150px;
+	border-radius:15px;
+}
+.kyzr_psyKindTitle{
+	position: relative;
+	text-align:center;
+	font-size: 25px;
+    top: 15px;
+    background-color: thistle;
+    border: 2px solid gold;
+}
+.kyzr_psyKindTitle>a{
+	color:black;
+}
+.kyzr_psyOneContainer{
+	height: 550px;
+    width: 100%;
+    position: relative;
+}
+.kyzr_psyOneContent{
+	height: 500px;
+    width: 83%;
+    margin:0 auto;
+    top: 40px;
+    position: relative;
+    background-color: white;
+    border-radius: 25px;
+}
+.kyzr_psyOneTitle{
+	height: 100px;
+    top: 40px;
+    position: relative;
+    color:black;
+    font-size:30px;
+    text-align:center;
+    font-weight:1000;
+}
+.kyzr_psyOneTestMain{
+    position: relative;
+    height: 1100px;
+    left: 35%;
+    top: 15px;
+    font-size: 20px;
+}
+.kyzr_centerPsyTest{
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    top: 85px;
+    font-size: 30px;
+}
+#psyRadio{
+    width: 20px !important;
+    height: 50px !important;
+}
+#nologin{
+	position: relative;
+ 	top: 200px;
+    text-align: center;
+    font-size:50px;
+}
+.radiolist{
+    position: relative;
+    width: 16%;
+    margin: 0 auto;
+    text-align: left;
+}
+.psytestInfo{
+	color:red;
+	font-size:25px;
+}
+.upBtn{
+    margin-right: 10px;
+    margin-top: 20px;
+}
+.downBtn{
+	margin-right: 38px;
+    margin-top: 20px;
+}
+.submitBtn{
+    margin-top: 20px;
+    width: 150px;
+}

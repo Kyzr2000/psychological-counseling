@@ -1,0 +1,56 @@
+@charset "UTF-8";
+.kyzr_articlePageContent{
+    height: 1800px;
+    width: 100%;
+    position: relative;
+}
+.kyzr_articleContent{
+	height: 1500px;
+    width: 83%;
+    margin:0 auto;
+    top: 40px;
+    position: relative;
+    background-color: white;
+    border-radius: 25px;
+}
+.kyzr_articleContent_img{
+	position:relative;
+	top:25px;
+	height:700px;
+}
+.kyzr_articleImg{
+    width: 1300px;
+    height: 600px;
+    border-radius: 25px;
+    left: 140px;
+    position: relative;
+}
+.kyzr_articleContent_TitleAndTime{
+	position: relative;
+   height: 100px;
+ }
+ .kyzr_articleTitle{
+ 	position: relative;
+  height: 60px;
+  font-weight: bold;
+  font-size: 30;
+  text-align:center;
+ }
+ .kyzr_articleTime{
+ 	height: 25px;
+ 	text-align:center;
+ 	font-size:18px;
+ }
+ .kyzr_articleContent_Main{
+ 	position: relative;
+ 	height: 500px;
+ }
+ .kyzr_articleMain{
+ 	width:84%;
+ 	left:8%;
+ 	position:relative;
+ }
+ p{
+ 	font-size: 25px;
+		text-indent: 35px;
+ }

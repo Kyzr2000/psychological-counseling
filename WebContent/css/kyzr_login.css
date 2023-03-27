@@ -1,0 +1,93 @@
+@charset "UTF-8";
+body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     background: url(http://nickyzj.run:12450/lychee/uploads/big/84c0f4dd684f53ddf0d77ab1eea6aac5.png);
+     background-size: cover;
+     background-position: center;
+   }
+
+   .frosted-glass {
+     position: fixed;
+     top: 100px;
+     left: 270px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 500px;
+     height: 15vh;
+     backdrop-filter: blur(20px);
+     transition: 0.5s ease;
+   }
+   .frosted-glass:hover {
+   }
+   .frosted-glass .title {
+     padding-left: 0.375em;
+     font-size: 3.4em;
+     font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
+     font-weight: 400;
+     letter-spacing: 0.35em;
+     color: white;
+   }
+   @media (max-width: 640px) {
+     .frosted-glass .title {
+       font-size: 2em;
+     }
+   }
+   a,a:hover,a:active,a:visited{
+   	text-decoration: none;
+   }
+   .kyzr_bottom{
+   	position: fixed;
+   	bottom: 50px;
+   }
+   .kyzr_bottomWord{
+   	color: white;
+   }
+   .kyzr_blog:visited{
+   	color:white;
+   }
+  .kyzr_blog:hover{
+   	color:purple;
+   }
+   .kyzr_centerRight{
+   	right:200px;
+   	width:400px;
+   	position:fixed;
+   	border:2px white solid;
+   	border-radius:25px;
+   	padding:30px;
+   	background-color: rgba(10,20,100,.4);
+   }
+   .kyzr_centerLeft{
+   	position:fixed;
+   	left:200px;
+   	width:650px;
+   	transition: 0.5s ease;
+   	border-radius:25px;
+   	box-shadow: 0 0.3px 0.7px rgba(0, 0, 0, 0.126), 0 0.9px 1.7px rgba(0, 0, 0, 0.179), 0 1.8px 3.5px rgba(0, 0, 0, 0.224), 0 3.7px 7.3px rgba(0, 0, 0, 0.277), 0 10px 20px rgba(0, 0, 0, 0.4);
+   }
+   .kyzr_centerLeft:hover {
+     box-shadow: 0 0.7px 1px rgba(0, 0, 0, 0.157), 0 1.7px 2.6px rgba(0, 0, 0, 0.224), 0 3.5px 5.3px rgba(0, 0, 0, 0.28), 0 7.3px 11px rgba(0, 0, 0, 0.346), 0 20px 30px rgba(0, 0, 0, 0.5);
+   }
+   #kyzr_picture{
+   	width:650px;
+   	height:300px;
+   	border-radius:25px;
+   }
+   label{
+   	font-weight: bold;
+   }
+   .kyzr_loginButton{
+   	width:100%;
+   	color:black;
+   	background-color:Gainsboro;
+   }
+   .kyzr_forgetRegister{
+   	text-align:right;
+   }
+   nav{
+   	color:gray;
+   }

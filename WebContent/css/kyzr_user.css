@@ -1,0 +1,481 @@
+@charset "UTF-8";
+.kyzr_header{
+	position:relative;
+	height:100px;
+}
+.kyzr_bottom{
+	position:relative;
+	height:50px;
+}
+.kyzr_bottomWord{
+	position:relative;
+	text-align:center;
+	color:white;
+}
+a{
+	color:white;
+	text-decoration:none;
+}
+.kyzr_blog:hover{
+	color:purple;
+	text-decoration:none;
+}
+.kyzr_container{
+	position:relative;
+	width:100%;
+	height:800px;
+}
+.kyzr_content{
+	position:relative;
+	width:90%;
+	height:750px;
+	margin:0 auto;
+	background-color:white;
+    border-radius: 5px;
+}
+.kyzr_left{
+	position:relative;
+	width:20%;
+	height:750px;
+	border: 1px gray solid;
+	background-color:#dddddd;
+	float:left;
+}
+.kyzr_right{
+	position:relative;
+	width:80%;
+	float:left;
+	height:750px;
+	border: 1px gray solid;
+}
+.kyzr_btn{
+    border: none;
+    width: 100%;
+    border-radius: 0px;
+    height: 70px;
+    background-color: #ddd;
+    font-size: 25px;
+    border-bottom: 2px thistle solid;
+    position:relative;
+    z-index:1;
+}
+.kyzr_active{
+	border: none;
+	border-bottom: 2px thistle solid;
+	background-color: #8f8f8f !important;
+}
+#nologin{
+	position:relative;
+	text-align:center;
+    display:none;
+    font-size: 50px;
+    top: 30%;
+}
+#sy{
+	position:relative;
+	font-size:25px;
+	top: 25px;
+    left: 20px;
+}
+.syGreen{
+	position:relative;
+	font-size:25px;
+	color:limegreen;
+	font-style:normal;
+}
+.syRed{
+	position:relative;
+	font-size:25px;
+	color:red;
+	font-style:normal;
+}
+#wdqb{
+    position: relative;
+    top: 90px;
+    /* left: 20px; */
+    margin: 0 auto;
+    display: none;
+}
+#wddd{
+	position:relative;
+    display:none;
+    text-align: center;
+    height:745px;
+    overflow: auto;
+}
+#cpjl{
+	position:relative;
+    display:none;
+}
+#zcxlzxs{
+	position:relative;
+	text-align:center;
+    display:none;
+    font-size: 30px;
+    top: 30%;
+}
+#sz{
+	position: relative;
+    top: 10px;
+    display: none;
+}
+#glyjm{
+	position:relative;
+	text-align:center;
+    display:none;
+    font-size: 50px;
+    top: 30%;
+}
+.kyzr_money{
+	position: relative;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+#qbRed{
+	position:relative;
+	color:red;
+	font-style:normal;
+	font-size:25px;
+}
+.kyzr_inAndOut{
+    position: relative;
+    width: 30%;
+    height: 300px;
+    margin: 0 auto;
+    border: 3px solid gold;
+    border-radius: 25px;
+}
+.kyzr_iobtn{
+	position: relative;
+    margin: 0 auto;
+    display: table;
+    top: 15px;
+}
+#kyzr_purseMsg{
+	position:relative;
+	font-size:15px;
+	top:40px;
+	text-align:center;
+}
+.zcxlzxsRed{
+	position:relative;
+	font-size:30px;
+	color:red;
+	font-style:normal;
+}
+.zcxlzxsInfo{
+	position:relative;
+	font-size:30px;
+	font-style:normal;
+}
+.kyzr_registExpert{
+    position: absolute;
+    width: 2000px;
+    height: 1000px;
+    margin: 0 auto;
+    background-color: rgba(0,0,1,0.3);
+    z-index: 2;
+    top: -150px;
+    left: -450px;
+    display: none;
+    font-size:10px;
+}
+.kyzr_regist{
+    position: relative;
+    background-color: white;
+    z-index: 3;
+    margin: 0 auto;
+    width: 600px;
+    height: 500px;
+    top: 200px;
+}
+.kyzr_chaBtn{
+	position: relative;
+	width:100%;
+	height:50px;
+}
+.kyzr_cha{
+    position: relative;
+    border: none;
+    background-color: white;
+    float: right;
+    right: 10px;
+    top: 10px;
+    font-size:30px;
+}
+.regist_form{
+	position: relative;
+    width: 90%;
+    top: 25px;
+}
+.sz_option{
+	postion:relative;
+	font-size:25px;
+	color:black;
+}
+.kyzr_changeMessage{
+	position: absolute;
+    width: 2000px;
+    height: 1000px;
+    margin: 0 auto;
+    background-color: rgba(0,0,1,0.3);
+    z-index: 2;
+    top: -330px;
+    left: -450px;
+    display: none;
+    font-size:10px;
+}
+.kyzr_changeMessageContent{
+	position: relative;
+    background-color: white;
+    z-index: 3;
+    margin: 0 auto;
+    width: 600px;
+    height: 350px;
+    top: 200px;
+}
+.changeMessage_form{
+	position: relative;
+    width: 90%;
+    top: 40px;
+}
+@font-face{
+	font-family:"myFont";
+	src:url("ShouShuW.ttf");
+}
+.changeMessage_Info{
+	text-align:center;
+	font-size:30px;
+	font-family:"myFont";
+}
+.changePsw_Info{
+    text-align: center;
+    font-size: 30px;
+    font-family: "myFont";
+    position: relative;
+    top: 56px;
+}
+.kyzr_changePsw{
+	position: absolute;
+    width: 2000px;
+    height: 1000px;
+    margin: 0 auto;
+    background-color: rgba(0,0,1,0.3);
+    z-index: 2;
+    top: -330px;
+    left: -450px;
+    display: none;
+    font-size:10px;
+}
+.kyzr_changePswContent{
+	position: relative;
+    background-color: white;
+    z-index: 3;
+    margin: 0 auto;
+    width: 600px;
+    height: 350px;
+    top: 200px;
+}
+.changePsw_form{
+	position: relative;
+    width: 90%;
+    top: 100px;
+}
+.cpjlContent{
+    position: relative;
+    width: 78%;
+    float: left;
+    height: 368px;
+}
+.cpjlImg{
+	position:relative;
+	float:left;
+}
+.historicalPsyTest{
+	position:relative;
+	float:left;
+	width:78%;
+	height:339px;
+}
+.kyzr_psyTestOne{
+    position: relative;
+    width: 100%;
+    border: 2px solid gold;
+    height: 90px;
+    background-color: ghostwhite;
+}
+.psyTestImg{
+    position: relative;
+    width: 145px;
+    height: 86px;
+    float: left;
+}
+.psyTestTitle{
+    position: relative;
+    float: left;
+    font-size: 30px;
+    text-align: center;
+    top: 25px;
+    margin-left: 30px;
+}
+#psyTestScore1,#psyTestScore2,#psyTestScore3,#psyTestScore4{
+	position: relative;
+    font-size: 30px;
+    float: right;
+    margin-left: 30px;
+    top: 25px;
+}
+.psyTestBtn{
+	position: relative;
+    top: 25px;
+    float: right;
+    margin-left: 80px;
+}
+.orderContainer{
+	position:relative;
+	width:100%;
+	height:50px;
+	
+}
+#kyzr_glyjm{
+	position:relative;
+	top: 10px;
+    height: 60px;
+}
+.szHR{
+	position: relative;
+    top: 50px;
+    border: 1px solid lightgray;
+}
+.sy_topMessage{
+    position: relative;
+    height: 137px;
+}
+#sy_topStatus{
+    position: relative;
+    float: left;
+    border: 3px solid black;
+    width: 200px;
+    height: 130px;
+}
+.sy_topRight{
+    position: relative;
+    height: 130px;
+    width: 50%;
+    float: left;
+}
+.sy_nameAcc{
+    position: relative;
+    width: 100%;
+    height: 65px;
+}
+.sy_sexCreateEmail{
+	position: relative;
+    height: 65px;
+    width: 100%;
+}
+.sy_downMessage{
+    position: relative;
+    width: 97%;
+    height: 500px;
+}
+.nameAcc,.sexCreateEmail{
+    position: relative;
+    top: 15px;
+    left: 15px;
+    font-weight: 570;
+    font-size: 20px;
+}
+.sy_downInfo{
+    position: relative;
+    width: 100%;
+    font-weight: 600;
+    font-size: 25px;
+}
+.sy_downContent{
+	position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: 450px;
+    border: 3px solid darkgray;
+}
+#wddd_dark{
+	position: absolute;
+    background-color: rgba(0,0,1,0.3);
+    width: 1904px;
+    height: 950px;
+    z-index: 2;
+    top: -98px;
+    left: -440px;
+    display:none;
+}
+#wddd_white{
+	position: relative;
+	background-color: white;
+	margin: 0 auto;
+	padding:0;
+	width:50%;
+	height:522px;
+	top:180px;
+}
+.wddd_cha{
+	position: relative;
+	width:100%;
+	height: 70px;
+}
+.wddd_name{
+	position: relative;
+	width:100%;
+	height: 100px;
+}
+.wddd_myName{
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    background-color: thistle;
+}
+.whitefont{
+	position: relative;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    top: 35px;
+    font-weight: 550;
+}
+.wdddMessage_content{
+	position:relative;
+	width:90%;
+	top:50px;
+	
+}
+.wdddHistory_content{
+	position:relative;
+    top: 60px;
+}
+.wdddHistory_info{
+	position:relative;
+	font-size: 18px;
+}
+#kyzr_historyDark{
+	position: absolute;
+    background-color: rgba(0,0,1,0.3);
+    width: 1904px;
+    height: 950px;
+    z-index: 2;
+    top: -98px;
+    left: -440px;
+    display:none;
+}
+.kyzr_historyWhite{
+	position: relative;
+	background-color: white;
+	margin: 0 auto;
+	padding:0;
+	width:50%;
+	height:522px;
+	top:180px;
+}

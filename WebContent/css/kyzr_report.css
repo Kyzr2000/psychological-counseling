@@ -1,0 +1,133 @@
+@charset "UTF-8";
+.kyzr_header{
+	position:relative;
+	height:100px;
+}
+.kyzr_bottom{
+	position:relative;
+	height:50px;
+}
+.kyzr_bottomWord{
+	position:relative;
+	text-align:center;
+	color:white;
+}
+a{
+	color:white;
+	text-decoration:none;
+}
+.kyzr_blog:hover{
+	color:purple;
+	text-decoration:none;
+}
+.kyzr_container{
+	position:relative;
+	width:100%;
+	height:800px;
+}
+#kyzr_content{
+	position:relative;
+	width:30%;
+	height:750px;
+	padding:10px;
+	margin:0 auto;
+	background-color: rgba(255,255,255,0.5);
+	backdrop-filter: unset;
+    border-radius: 5px;
+    transition: 0.5s ease;
+   	/*box-shadow: 0 0.3px 0.7px rgba(0, 0, 0, 0.126), 0 0.9px 1.7px rgba(0, 0, 0, 0.179), 0 1.8px 3.5px rgba(0, 0, 0, 0.224), 0 3.7px 7.3px rgba(0, 0, 0, 0.277), 0 10px 20px rgba(0, 0, 0, 0.4);
+	*/
+}
+@font-face{
+	font-family:"myFont";
+	src:url("ShouShuW.ttf");
+}
+#kyzr_score {
+    font-family: "myFont";
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+    top: 94px;
+    position: relative;
+}
+#kyzr_useName {
+    font-family: "myFont";
+    font-size: 30px;
+    font-weight: 500;
+    /* top: 30px; */
+    position: relative;
+    height: 55px;
+}
+#kyzr_suggest{
+    /* font-family: "myFont"; */
+    top: 3px;
+    font-size: 20px;
+    position: relative;
+    padding: 10px;
+}
+.kyzr_madeby{
+    font-family: "myFont";
+    font-size: 27px;
+    font-weight: 700;
+    position: relative;
+    text-align: right;
+    top: 200px;
+}
+.title{
+    top: 20px;
+    position: relative;
+    height: 60px;
+    left: 4px;
+}
+#kyzr_title{
+	font-family:"myFont";
+    font-size: 30px;
+    font-weight: 500;
+}
+.orangeToYellow{
+    position: relative;
+    width: 15px;
+    height: 43px;
+    float: left;
+}
+.info1{
+    position: relative;
+    left: 25px;
+    font-size: 15px;
+}
+.info2{
+    position: relative;
+    left: 10px;
+    font-size: 20px;
+}
+.score{
+	position: relative;
+    height: 300px;
+}
+.scoreContent{
+    position: relative;
+    background-color: yellow;
+    border: 3px solid orange;
+    width: 270px;
+    height: 258px;
+    border-radius: 900px;
+    margin: 0 auto;
+    top: 20px;
+}
+.suggest{
+    position: relative;
+    height: 300px;
+}
+.orange{
+    position: relative;
+    float: left;
+    width: 15px;
+    height: 15px;
+    left: 5px;
+    top: 6px;
+}
+.downloadReport{
+    position: absolute;
+    top: 811px;
+    right: 500px;
+}

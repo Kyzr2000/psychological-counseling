@@ -1,0 +1,257 @@
+@charset "UTF-8";
+.kyzr_homePageContent{
+	position:relative;
+	height:1800px;
+	width:100%;
+}
+.kyzr_homePageContent_left{
+    background-color: white;
+    border-radius: 25px;
+    height: 1500px;
+    width: 50%;
+    left: 150px;
+    top: 40px;
+    position: relative;
+    float:left;
+}
+.kyzr_searchContent{
+	position: relative;
+    top: 25px;
+    left: 75px;
+    z-index:0;
+}
+.kyzr_search{
+	position: relative;
+	width: 87%;
+}
+.kyzr_homePageContent_rightUp{
+	position: relative;
+    float: right;
+    background-color: white;
+    border-radius: 25px;
+    width: 30%;
+    top: 40px;
+    right: 150px;
+    height: 450px;
+}
+.kyzr_homePageContent_rightDown{
+    position: relative;
+    float: right;
+    background-color: white;
+    border-radius: 25px;
+    width: 30%;
+    top: 80px;
+    right: 150px;
+    height: 1000px;
+}
+
+.kyzr_leftContent {
+    background-color: white;
+    height: 200px;
+    width: 90%;
+    position: relative;
+    left: 5%;
+    top: 30px;
+    margin-bottom: 15px;
+    border-bottom:3px solid Thistle;
+ }
+ .kyzr_leftContent_img{
+ 	position:relative;
+    top: 25px;
+    left: 25px;
+    float: left;
+ }
+ .kyzr_img{
+    width: 280px;
+  	height: 150px;
+    border-radius: 10px;
+ }
+ .kyzr_leftContent_title{
+ 	position: relative;
+    height: 75px;
+    top: 25px;
+    color: black;
+    left: 50px;
+    font-weight: bold;
+    font-size: 30;
+ }
+ .kyzr_leftContent_time{
+ 	position: relative;
+    height: 50px;
+    color: black;
+    font-size: 20;
+    float: right;
+    top: 65px;
+    right: 40px;
+ }
+ .kyzr_article{
+ 	color:black;
+ }
+ a:hover{
+ 	text-decoration:none;
+ }
+ .kyzr_article:visited{
+ 	color:black;
+ }
+ .kyzr_rightUpContent{
+    position: relative;
+    top: -60px;
+ }
+ #kyzr_rightDownContent{
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    top: 20px;
+    height: 950px;
+ }
+ .kyzr_rightDown_hr{
+    color: thistle;
+    position: relative;
+    /* height: 1px; */
+    border: 1px solid;
+    top: 10px;
+    width: 100%;
+ }
+ .kyzr_rightDown_creator{
+ 	position:relative;
+ 	float:left;
+    font-size: 15px;
+ }
+ .kyzr_rightDown_time{
+ 	position:relative;
+ 	float:right;
+    font-size: 15px;
+ }
+ .kyzr_rightDown_title{
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 25px;
+ }
+ #cav{
+ 	left:35px;
+    position: relative;
+ }
+ #kyzr_canvasTitle{
+    position: relative;
+    text-align: center;
+    top: -50px;
+    font-size: 25px;
+    color: red;
+    font-weight: 800;
+ }
+ @font-face{
+	font-family:"myFont";
+	src:url("ShouShuW.ttf");
+}
+ .kyzr_rightDownTitle{
+    position: relative;
+    font-family: "myFont";
+    /* left: 20px; */
+    margin: 0 auto;
+    width: 100%;
+    font-size: 50px;
+    text-align: center;
+    color: rebeccapurple;
+ }
+ .kyzr_changePassagePage{
+    position: absolute;
+    top: 1388px;
+    left: 456px;
+ }
+ #kyzr_tjfxDark{
+    position: absolute;
+    z-index: 1;
+    top: -293px;
+    left: -1185px;
+    background-color: rgba(0,0,1,0.3);
+    padding: 0;
+    margin: 0 auto;
+    width: 1906px;
+    height: 2156px;
+    display: none;
+ }
+ .kyzr_tjfxWhite{
+	position: fixed;
+    background-color: white;
+    z-index: 2;
+    padding: 0;
+    margin: 0 auto;
+    width: 1200px;
+    height: 582px;
+    display: flex;
+    left: 370px;
+    top: 200px;
+ }
+ .kyzr_chaContent{
+	position: relative;
+    width: 0px;
+    height: 70px;
+    right: -1180px;
+    top: 10px;
+    font-size: 30px;
+}
+.kyzr_cha{
+    position: relative;
+    height: 30px;
+    width: 100px;
+    left: 1154px;
+}
+ .kyzr_chaBtn{
+    border: none;
+    background-color: white;
+    font-size: 35px;
+    color: black;
+ }
+ #tjfx{
+	position: relative;
+    top: 50px;
+    left: -20px;
+ }
+ @font-face{
+	font-family:"myFont";
+	src:url("ShouShuW.ttf");
+}
+.kyzr_currentTime{
+	font-family:"myFont";
+	position:relative;
+	font-size:35px;
+    text-align: center;
+}
+.kyzr_tjfxContainer{
+	position:relative;
+    top: 50px;
+}
+.kyzr_tjfxContent{
+    position: relative;
+    float: left;
+    background-color: thistle;
+    width: 200px;
+    height: 100px;
+    border: 2px solid gold;
+    margin-right: 50px;
+    margin-bottom: 54px;
+    margin-left: 41px;
+}
+.kyzr_tjfxTitle{
+    position: relative;
+    font-family:"myFont";
+    font-size: 25px;
+    /* text-align: center; */
+    color: white;
+    border-bottom: 2px solid gold;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#userNum,#sexPercent,#expertNum,#adminNum,#answerNum,#commentNum,#passageNum,#courseNum,#scoreNum1,#scoreNum2,#scoreNum3,#scoreNum4{
+	position: relative;
+	font-family:"myFont";
+    font-size: 25px;
+    height: 50%;
+    color:Red;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

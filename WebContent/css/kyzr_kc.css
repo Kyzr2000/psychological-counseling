@@ -1,0 +1,92 @@
+@charset "UTF-8";
+.kyzr_kcContainer{
+	position: relative;
+	height: 1500px;
+}
+.kyzr_kcContent{
+	height: 1200px;
+    width: 83%;
+    margin:0 auto;;
+    top: 40px;
+    position: relative;
+    background-color: white;
+    border-radius: 25px;
+}
+#kyzr_allKc{
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+    height: 1000px;
+    top: 100px;
+}
+.kyzr_kcUL{
+    position: relative;
+    width: 400px;
+    height: 300px;
+    float: left;
+    margin-left: 36px;
+    margin-bottom: 30px;
+    margin-right: 36px;
+    border: 2px solid thistle;
+}
+.kyzr_kcIMG{
+	position: relative;
+	width: 396px;
+    height: 200px;
+}
+.kyzr_kcti{
+	position:relative; 
+	background-color:Gainsboro;
+	height: 96px;
+}
+.kyzr_kctitle{
+	font-size: 20px;
+    position: relative;
+    border-bottom: 2px solid thistle;
+    top: 20px;
+}
+.kyzr_kcTime{
+    font-size: 5px;
+    position: relative;
+    top: 40px;
+}
+.kyzr_kcword{
+	color:black;
+}
+.kyzr_video{
+	position:relative;
+    top: 100px;
+    left: 300px;
+}
+.kyzr_videoContainer{
+	position: relative;
+	height: 1100px;
+}
+.kyzr_videoContent{
+	height: 800px;
+    width: 83%;
+    margin:0 auto;
+    top: 40px;
+    position: relative;
+    background-color: white;
+    border-radius: 25px;
+}
+.kyzr_searchCourse{
+	position:relative;
+	width:90%;
+	margin:0 auto;
+	padding:0;
+	left: 36px;
+	top: 50px;
+}
+.kyzr_search{
+	position:relative;
+}
+.kyzr_changePage{
+	position: absolute;
+    margin: 0 auto;
+    padding: 0;
+    top: 1130px;
+    left: 702px;
+}

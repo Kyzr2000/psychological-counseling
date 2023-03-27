@@ -1,0 +1,68 @@
+.kyzr_zxContainer{
+	position: relative;
+	height: 700px;
+}
+.kyzr_zxContent{
+	height: 600px;
+    width: 83%;
+    margin:0 auto;
+    top: 40px;
+    position: relative;
+    background-color: white;
+    border-radius: 25px;
+}
+#mychat{
+	position: relative;
+    width: 100%;
+    height: 600px;
+    border-radius: 25px;
+}
+@font-face{
+	font-family:"myFont";
+	src:url("ShouShuW.ttf");
+}
+.kyzr_chatInfo{
+    position: relative;
+    font-family: "myFont";
+    font-size: 45px;
+    /* margin: 0 auto; */
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 500px;
+}
+.houseChange{
+	position:relative;
+	width:100%;
+    top: 20px;
+}
+.houseChange_info{
+	position:relative;
+	text-align:center;
+	font-family: "myFont";
+    font-size: 30px;
+}
+.house{
+	position: relative;
+    height: 80px;
+    width: 60px;
+    float: left;
+    margin-left: 75px;
+    margin-bottom: 30px;
+}
+.manyHouse{
+	position:relative;
+	height:200px;
+	top: 80px;
+	float:left;
+}
+.houseImg{
+	position:relative;
+	width:60px;
+	height:60px;
+}
+.house_id{
+    text-align: center;
+    font-size: 15px;
+}

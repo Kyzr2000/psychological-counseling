@@ -1,0 +1,181 @@
+@charset "UTF-8";
+.kyzr_gyjdContainer{
+	position: relative;
+	height: 1500px;
+}
+.kyzr_gyjdContent{
+	height: 1200px;
+    width: 83%;
+    margin:0 auto;
+    top: 40px;
+    position: relative;
+    background-color: white;
+    border-radius: 25px;
+}
+.kyzr_gyjdPicture{
+    position: relative;
+    float: left;
+    width: 800px;
+    height: 400px;
+    top: 50px;
+    left: 50px;
+    border-radius: 25px;
+}
+.kyzr_gyjdGood{
+	position: relative;
+    height: 400px;
+    width: 600px;
+    top: 50px;
+    left: 70px;
+    float: left;
+}
+.kyzr_gyjdList{
+	position: relative;
+    height: 600px;
+    width: 90%;
+    top: 130px;
+    border-radius: 25px;
+    left: 50px;
+    float: left;
+    border: 3px solid gold;
+}
+.kyzr_gyjdSearch {
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.kyzr_gyjdJH{
+	position: relative;
+    height: 100px;
+    width: 100%;
+    border-bottom: 2px solid gold;
+}
+i{
+	font-style:normal;
+	color:red;
+}
+.gyjdtitle:hover{
+	color:black;
+}
+.kyzr_gyjdTitle{
+	position: relative;
+	font-size: 25px;
+}
+.gyjdtitle{
+	color:black;
+}
+.kyzr_gyjdCreator{
+    position: relative;
+    float: left;
+    font-size: 20px;
+    top: 20px;
+}
+.kyzr_gyjdTime{
+    position: relative;
+    font-size: 20px;
+    top: 20px;
+    left: 200px;
+}
+td{
+	font-size:20px;
+}
+.kyzr_changePage{
+    position: absolute;
+    top: 530px;
+    left: 640px;
+}
+.commentContent{
+	position:relative;
+	margin:0 auto;
+	padding:0;
+	width:90%;
+	top:50px;
+	height:1000px;
+}
+.commentTitle{
+    position: relative;
+    font-size: 40px;
+    font-weight: 700;
+}
+.commentCN{
+    position: relative;
+    font-size: 17px;
+    float: left;
+}
+.commentCT{
+    position: relative;
+    font-size: 17px;
+}
+.commentArticle{
+	position:relative;
+	font-size:25px;
+	text-indent:25px;
+}
+.kyzr_comment{
+	position:relative;
+    margin-top: 80px;
+}
+#kyzr_commentList{
+	position:relative;
+	top:80px;
+}
+.wjb_comment{
+	position:relative;
+	
+}
+.wjb_name{
+	position: relative;
+    float: left;
+    font-size: 15px;
+    margin-right: 50px;
+}
+.wjb_createAt{
+	position: relative;
+    /* float: left; */
+    /* margin-left: 50px; */
+    font-size: 15px;
+}
+.wjb_article{
+    position: relative;
+    font-size: 20px;
+}
+#kyzr_newAnswer{
+	position: absolute;
+    width: 1940px;
+    height: 2000px;
+    z-index: 2;
+    background-color: rgba(0,0,1,0.3);
+    margin: 0 auto;
+    left: -200px;
+    top: -400px;
+    display:none;
+}
+#kyzr_uploadBtn{
+    position: relative;
+    top: 472px;
+    left: -1350;
+    width: 100px;
+    height: 40px;
+}
+.kyzr_newAnswerContent{
+    position: relative;
+    margin: 0 auto;
+    background-color: white;
+    z-index: 3;
+    width: 50%;
+    height: 330px;
+    top: 700px;
+}
+.kyzr_cha{
+    border: none;
+    background-color: white;
+    position: relative;
+    float: right;
+    font-size: 40px;
+    right: 15px;
+}
+.uploadAnswer_form{
+    position: relative;
+    top: 60px;
+    width: 90%;
+}

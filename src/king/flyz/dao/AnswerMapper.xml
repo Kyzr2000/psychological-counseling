@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="king.flyz.dao.AnswerMapper">
+	<resultMap id="BaseResultMap" type="king.flyz.pojo.Answer">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="article" property="article" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 一对一 结果集 -->
+	<resultMap id="UserWithAnswer" type="king.flyz.pojo.Answer">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="article" property="article" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="createAt" property="createAt" jdbcType="VARCHAR" />
+		<association property="user" javaType="king.flyz.pojo.User">
+			<id column="user_id" property="id" />
+			<result column="name" property="name" />
+		</association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,user_id,title,article,status,createAt
+	</sql>
+	<!-- 查询所有公益解答模块的问题，并且展示在页面上 -->
+	<select id="getAnswerList" resultMap="UserWithAnswer">
+		select answer.id,title,article,answer.status,answer.createAt,user.id,user.name
+		from answer,user
+		where user.id=user_id
+	</select>
+	<select id="getAnswerLikely" resultMap="UserWithAnswer"
+		parameterType="String">
+		select answer.id,title,article,answer.status,answer.createAt,user.id,user.name
+		from answer,user
+		where user.id=answer.user_id and
+   		 (title like concat('%',#{title},'%')
+			or article like  concat('%',#{article},'%')
+			or user.name like concat('%',#{name},'%'))
+	</select>
+	<select id="getAnswerListById" resultMap="UserWithAnswer"
+		parameterType="Integer">
+		select answer.id,title,article,answer.status,answer.createAt,user.id,user.name
+		from answer,user
+		where user.id=answer.user_id and user_id=#{user_id}
+	</select>
+	<select id="getAnswerByID" resultMap="UserWithAnswer" parameterType="Integer">
+		select answer.id,title,article,answer.status,answer.createAt,user.id,user.name
+		from answer,user
+		where user.id=user_id
+		and answer.id=#{id}
+	</select>
+	<insert id="addAnswer">
+		insert into 
+		answer(user_id,title,article,status,createAt)
+		values(#{user_id},#{title},#{article},#{status},#{createAt})
+	</insert>
+</mapper>

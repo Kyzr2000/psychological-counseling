@@ -1,0 +1,92 @@
+@charset "UTF-8";
+.kyzr_yyzjContainer{
+	position: relative;
+	height: 1500px;
+}
+.kyzr_yyzjContent{
+	height: 1200px;
+    width: 83%;
+    margin:0 auto;
+    top: 40px;
+    position: relative;
+    background-color: white;
+    border-radius: 25px;
+}
+.kyzr_expert{
+	position: relative;
+    height: 200px;
+    border-bottom: 2px solid gold;
+    width: 84%;
+    left: 8%;
+}
+.kyzr_expertImg{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 70px;
+    top: 25px;
+    left: 25px;
+    float:left;
+}
+.kyzr_expertName{
+	position: relative;
+    left: 80px;
+    top: 30px;
+    font-size: 30px;
+}
+.kyzr_expertDescribe{
+    position: relative;
+    left: 80px;
+    top: 40px;
+    font-size: 15px;
+}
+.kyzr_expertValue{
+	position: relative;
+	text-align:right;
+	top: 40px;
+}
+.kyzr_expertMoney{
+    color: red;
+    font-style: normal;
+    font-size: 30px;
+}
+.kyzr_expertTag{
+	position: relative;
+    top: 35px;
+    left: 80px;
+}
+.kyzr_expertTagOne{
+    position: relative;
+    float: left;
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin-right: 5px;
+    color: gray;
+}
+.kyzr_expertBtn{
+    position: relative;
+    top: 42px;
+    float: right;
+    right: -30px;
+    width:100px;
+}
+.kyzr_searchExpert{
+	position:relative;
+    height: 67px;
+}
+.kyzr_yyzjSearch{
+	margin-top: 0px;
+    position: relative;
+    left: 127px;
+    top: 22px;
+}
+.btn-search{
+	position:relative;
+	width: 74px;
+    height: 53px;
+}
+.kyzr_changePage{
+    position: absolute;
+    top: 1100px;
+    left: 718px;
+}
