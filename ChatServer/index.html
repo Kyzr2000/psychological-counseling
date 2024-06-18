@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>TeamChat-Lite</title>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper white">
+        <a href="#" class="brand-logo center grey-text darken-4"></a>
+    </div>
+</nav>
+<div class="row">
+    <!-- 用户列表 -->
+    <!--    <div class="col s4">-->
+    <!--        <h3 class="flow-text center teal-text text-lighten-1">CONNECTED USER</h3>-->
+    <!--        <ul class="collection" id="user-list"></ul>-->
+    <!--    </div>-->
+    <!-- 登录表单 -->
+    <div class="col s12" id="login-col">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title teal-text text-lighten-1">Give yourself a nickname</span>
+                <form id="login-form">
+                    <div class="input-field">
+                        <input type="text" id="name">
+                        <label for="name" class="active">Name</label>
+                    </div>
+                    <div class="right-align">
+                        <button class="btn waves-effect waves-light btn-small" id="login-btn" type="submit"
+                                name="action">
+                            Link Start
+                            <i class="material-icons right">chevron_right</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 聊天框 -->
+    <div class="col s12" id="chat-col" style="display:none">
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text" id="messages"></div>
+            <div class="card-action white">
+                <form action="" id="message-form">
+                    <div class="input-field">
+                        <textarea id="textarea" class="materialize-textarea"></textarea>
+                        <label for="textarea" class="active">输入框</label>
+                    </div>
+                    <div class="right-align">
+                        <button class="btn waves-effect waves-light btn-small" type="submit" name="action">
+                            发送
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdn.socket.io/4.4.1/socket.io.js"></script>
+<script>
+    (() => {
+        const loginForm = document.getElementById('login-form'),
+            loginBtn = document.getElementById('login-btn'),
+            messageForm = document.getElementById('message-form'),
+            messages = document.getElementById('messages'),
+            // userList = document.getElementById('user-list'),
+            loginCol = document.getElementById('login-col'),
+            chatCol = document.getElementById('chat-col'),
+            roomTitle = document.getElementsByClassName('brand-logo')
+        para = $_GET()
+        //连接到socket.io
+        let socket = io({'timeout': 5000, 'connect timeout': 5000})
+        if (socket !== undefined) {
+            console.log('Connected to socket')
+        }
+
+        //更新用户列表
+        socket.on('loadUser', data => {
+            document.getElementById('members').innerHTML = `当前在线${data[para.house_id].length}人`
+            // userList.innerHTML = ''
+            // console.log(users)
+            // users.forEach(user => {
+            //     console.log(user)
+            //     // let userLi = document.createElement('li')
+            //     // userLi.setAttribute('class', 'collection-item')
+            //     // userLi.innerHTML = `<h6 class="center">${user}</h6>`
+            //     // userList.insertBefore(userLi, userList.lastChild)
+            // })
+        })
+
+        //提交登录表单
+        loginForm.addEventListener('submit', e => {
+            e.preventDefault()
+            socket.emit('login', para, res => {
+                if (typeof res === 'object') {
+                    roomTitle[0].innerHTML = `心理咨询室 #${para.house_id}`
+                    loginCol.style.display = 'none'
+                    chatCol.style.display = 'block'
+                    let message = document.createElement('p')
+                    message.setAttribute('class', 'center blue-grey-text text-lighten-2')
+                    message.setAttribute('id', 'members')
+                    message.textContent = `当前在线${res.length}人`    //加入房间消息
+                    messages.appendChild(message)
+                    messages.insertBefore(message, messages.lastElementChild)
+                } else {
+                    alert(res)
+                }
+            })
+        })
+
+        //发送消息
+        messageForm.addEventListener('submit', e => {
+            e.preventDefault()
+            const msg = document.getElementById('textarea').value
+            socket.emit('chat message', {'house_id': para.house_id, 'user_id': para.user_id, 'message': msg})
+        })
+
+        //获取消息
+        socket.on('output', data => {
+            //同房间的才能收到信息
+            if (data.house_id === para.house_id) {
+                let message = document.createElement('h6')
+                if (data.user_id === para.user_id) message.style.textAlign = 'right'
+                message.textContent = `${data.user_id}: ${data.message}`
+                messages.appendChild(message)
+                messages.insertBefore(message, messages.lastChild)
+            }
+        })
+
+        if (para.user_id) loginBtn.click()
+    })()
+
+    //获取地址栏参数
+    function $_GET() {
+        let res = {}
+        decodeURI(window.location.search.substr(1)).split('&').map(v => {
+            return v.split('=')
+        }).map(w => {
+            res[w[0]] = w[1]
+        })
+        return res
+    }
+</script>
+</body>
+</html>
